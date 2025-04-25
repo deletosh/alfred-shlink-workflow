@@ -1,0 +1,55 @@
+{
+    "$schema": "https://json.schemastore.org/semantic-release.json",
+    "repositoryUrl": "https://github.com/deletosh/alfred-shlink-workflow.git",
+    "branches": [
+        "+([0-9])?(.{+([0-9]),x}).x",
+        "main",
+        "master",
+        "next",
+        "next-major",
+        {
+            "name": "beta",
+            "prerelease": true
+        },
+        {
+            "name": "alpha",
+            "prerelease": true
+        }
+    ],
+    "tagFormat": "v${version}",
+    "plugins": [
+        "@semantic-release/commit-analyzer",
+        "@semantic-release/release-notes-generator",
+        [
+            "@semantic-release/changelog",
+            {
+                "changelogFile": "CHANGELOG.md"
+            }
+        ],
+        [
+            "@semantic-release/exec",
+            {
+                "prepareCmd": "bunx fast-alfred build -t ${nextRelease.version}"
+            }
+        ],
+        [
+            "@semantic-release/git",
+            {
+                "assets": ["package.json", "bun.lock", "info.plist", "CHANGELOG.md"],
+                "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+            }
+        ],
+        [
+            "@semantic-release/github",
+            {
+                "assets": [
+                    {
+                        "path": "./esbuild/alfred-shlink-workflow.alfredworkflow",
+                        "label": "alfred-shlink-workflow.alfredworkflow",
+                        "name": "alfred-shlink-workflow.alfredworkflow"
+                    }
+                ]
+            }
+        ]
+    ]
+}

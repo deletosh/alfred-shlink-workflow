@@ -1,0 +1,45 @@
+{
+  "name": "alfred-shlink-workflow",
+  "version": "1.0.0",
+  "description": "An Alfred workflow for shortening URLs with Shlink",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "fast-alfred build",
+    "dev": "fast-alfred dev"
+  },
+  "engines": {
+    "bun": ">=1.0.0"
+  },
+  "keywords": [
+    "alfred",
+    "workflow",
+    "shlink",
+    "url",
+    "shortener",
+    "bun"
+  ],
+  "author": "Dele Tosh",
+  "license": "MIT",
+  "dependencies": {
+    "fast-alfred": "^2.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deletosh/alfred-shlink-workflow"
+  },
+  "bugs": {
+    "url": "https://github.com/deletosh/alfred-shlink-workflow/issues"
+  },
+  "homepage": "https://github.com/deletosh/alfred-shlink-workflow#readme",
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/exec": "^7.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.1",
+    "@semantic-release/release-notes-generator": "^14.0.3",
+    "semantic-release": "^24.2.3"
+  }
+}
